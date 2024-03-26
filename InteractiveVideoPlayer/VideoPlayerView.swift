@@ -19,7 +19,7 @@ struct VideoPlayerView: View {
         VStack {
             VideoPlayer(player: model.player)
                 .onAppear { model.play() }
-                .onShake { model.pause() }
+                .onShake { model.togglePlayback() }
         }
         .ignoresSafeArea()
     }
