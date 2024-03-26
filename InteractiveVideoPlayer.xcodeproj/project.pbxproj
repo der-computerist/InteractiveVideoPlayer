@@ -22,13 +22,6 @@
 			remoteGlobalIDString = CDC0EAC52BB3310000C479D9;
 			remoteInfo = InteractiveVideoPlayer;
 		};
-		CDC0EAE12BB3310300C479D9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CDC0EABE2BB3310000C479D9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CDC0EAC52BB3310000C479D9;
-			remoteInfo = InteractiveVideoPlayer;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +32,6 @@
 		CDC0EAD02BB3310300C479D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CDC0EAD62BB3310300C479D9 /* InteractiveVideoPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InteractiveVideoPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC0EADA2BB3310300C479D9 /* InteractiveVideoPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveVideoPlayerTests.swift; sourceTree = "<group>"; };
-		CDC0EAE02BB3310300C479D9 /* InteractiveVideoPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InteractiveVideoPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,13 +43,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CDC0EAD32BB3310300C479D9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CDC0EADD2BB3310300C479D9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -81,7 +66,6 @@
 			children = (
 				CDC0EAC62BB3310000C479D9 /* InteractiveVideoPlayer.app */,
 				CDC0EAD62BB3310300C479D9 /* InteractiveVideoPlayerTests.xctest */,
-				CDC0EAE02BB3310300C479D9 /* InteractiveVideoPlayerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,24 +135,6 @@
 			productReference = CDC0EAD62BB3310300C479D9 /* InteractiveVideoPlayerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CDC0EADF2BB3310300C479D9 /* InteractiveVideoPlayerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CDC0EAF02BB3310300C479D9 /* Build configuration list for PBXNativeTarget "InteractiveVideoPlayerUITests" */;
-			buildPhases = (
-				CDC0EADC2BB3310300C479D9 /* Sources */,
-				CDC0EADD2BB3310300C479D9 /* Frameworks */,
-				CDC0EADE2BB3310300C479D9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CDC0EAE22BB3310300C479D9 /* PBXTargetDependency */,
-			);
-			name = InteractiveVideoPlayerUITests;
-			productName = InteractiveVideoPlayerUITests;
-			productReference = CDC0EAE02BB3310300C479D9 /* InteractiveVideoPlayerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -183,10 +149,6 @@
 						CreatedOnToolsVersion = 13.2.1;
 					};
 					CDC0EAD52BB3310300C479D9 = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = CDC0EAC52BB3310000C479D9;
-					};
-					CDC0EADF2BB3310300C479D9 = {
 						CreatedOnToolsVersion = 13.2.1;
 						TestTargetID = CDC0EAC52BB3310000C479D9;
 					};
@@ -207,7 +169,6 @@
 			targets = (
 				CDC0EAC52BB3310000C479D9 /* InteractiveVideoPlayer */,
 				CDC0EAD52BB3310300C479D9 /* InteractiveVideoPlayerTests */,
-				CDC0EADF2BB3310300C479D9 /* InteractiveVideoPlayerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -223,13 +184,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CDC0EAD42BB3310300C479D9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CDC0EADE2BB3310300C479D9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,13 +210,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CDC0EADC2BB3310300C479D9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -270,11 +217,6 @@
 			isa = PBXTargetDependency;
 			target = CDC0EAC52BB3310000C479D9 /* InteractiveVideoPlayer */;
 			targetProxy = CDC0EAD72BB3310300C479D9 /* PBXContainerItemProxy */;
-		};
-		CDC0EAE22BB3310300C479D9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CDC0EAC52BB3310000C479D9 /* InteractiveVideoPlayer */;
-			targetProxy = CDC0EAE12BB3310300C479D9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -493,42 +435,6 @@
 			};
 			name = Release;
 		};
-		CDC0EAF12BB3310300C479D9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 42K35KSBL9;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliaga.InteractiveVideoPlayerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = InteractiveVideoPlayer;
-			};
-			name = Debug;
-		};
-		CDC0EAF22BB3310300C479D9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 42K35KSBL9;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliaga.InteractiveVideoPlayerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = InteractiveVideoPlayer;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -555,15 +461,6 @@
 			buildConfigurations = (
 				CDC0EAEE2BB3310300C479D9 /* Debug */,
 				CDC0EAEF2BB3310300C479D9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CDC0EAF02BB3310300C479D9 /* Build configuration list for PBXNativeTarget "InteractiveVideoPlayerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CDC0EAF12BB3310300C479D9 /* Debug */,
-				CDC0EAF22BB3310300C479D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
