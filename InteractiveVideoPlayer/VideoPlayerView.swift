@@ -19,6 +19,7 @@ struct VideoPlayerView: View {
         VStack {
             VideoPlayer(player: model.player)
                 .onAppear { model.play() }
+                .onShake { print("Device shaken!") }
         }
         .ignoresSafeArea()
     }
