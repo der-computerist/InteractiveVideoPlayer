@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1ECF5F36F36A893951EA5A35 /* Pods_InteractiveVideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63459092B14DD9533F6127BF /* Pods_InteractiveVideoPlayer.framework */; };
 		74CD014A1D62EEDA4902EF69 /* Pods_InteractiveVideoPlayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B72700E0B6B9839C16CA67B5 /* Pods_InteractiveVideoPlayerTests.framework */; };
+		CD9324C62BB367C40069382B /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9324C52BB367C40069382B /* PlayerViewModel.swift */; };
+		CD9324C82BB36D2F0069382B /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9324C72BB36D2F0069382B /* VideoPlayerView.swift */; };
 		CDC0EACA2BB3310000C479D9 /* InteractiveVideoPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC0EAC92BB3310000C479D9 /* InteractiveVideoPlayerApp.swift */; };
 		CDC0EACC2BB3310000C479D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC0EACB2BB3310000C479D9 /* ContentView.swift */; };
 		CDC0EACE2BB3310300C479D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC0EACD2BB3310300C479D9 /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 		24A061776240B894B1AFA3D1 /* Pods-InteractiveVideoPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InteractiveVideoPlayer.release.xcconfig"; path = "Target Support Files/Pods-InteractiveVideoPlayer/Pods-InteractiveVideoPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		63459092B14DD9533F6127BF /* Pods_InteractiveVideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InteractiveVideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72700E0B6B9839C16CA67B5 /* Pods_InteractiveVideoPlayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InteractiveVideoPlayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD9324C52BB367C40069382B /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		CD9324C72BB36D2F0069382B /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		CDC0EAC62BB3310000C479D9 /* InteractiveVideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InteractiveVideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC0EAC92BB3310000C479D9 /* InteractiveVideoPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveVideoPlayerApp.swift; sourceTree = "<group>"; };
 		CDC0EACB2BB3310000C479D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,7 +83,6 @@
 				21E31F1377091EB783D95CFC /* Pods-InteractiveVideoPlayerTests.debug.xcconfig */,
 				0E4A56AB08B63F7F337238FE /* Pods-InteractiveVideoPlayerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -106,8 +109,10 @@
 		CDC0EAC82BB3310000C479D9 /* InteractiveVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				CDC0EAC92BB3310000C479D9 /* InteractiveVideoPlayerApp.swift */,
 				CDC0EACB2BB3310000C479D9 /* ContentView.swift */,
+				CD9324C72BB36D2F0069382B /* VideoPlayerView.swift */,
+				CDC0EAC92BB3310000C479D9 /* InteractiveVideoPlayerApp.swift */,
+				CD9324C52BB367C40069382B /* PlayerViewModel.swift */,
 				CDC0EACD2BB3310300C479D9 /* Assets.xcassets */,
 				CDC0EACF2BB3310300C479D9 /* Preview Content */,
 			);
@@ -280,7 +285,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDC0EACC2BB3310000C479D9 /* ContentView.swift in Sources */,
+				CD9324C62BB367C40069382B /* PlayerViewModel.swift in Sources */,
 				CDC0EACA2BB3310000C479D9 /* InteractiveVideoPlayerApp.swift in Sources */,
+				CD9324C82BB36D2F0069382B /* VideoPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
