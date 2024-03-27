@@ -17,9 +17,9 @@ class PlayerViewModel {
     let player: AVPlayer
     private var isPlaying = false
     
-    let maxVolume: Float = 1.0
-    let minVolume: Float = 0.0
-    var volume: Float = 1.0 {
+    private let maxVolume: Float = 1.0
+    private let minVolume: Float = 0.0
+    private var volume: Float = 1.0 {
         didSet {
             if volume > maxVolume { volume = maxVolume }
             if volume < minVolume { volume = minVolume }
@@ -31,9 +31,12 @@ class PlayerViewModel {
     private let motionManager = CMMotionManager()
     private let motionUpdateInterval = 1.0 / 50.0
     private let queue = OperationQueue()
+    
+    /// The minimum amount of rotation in any given axis that will trigger
+    /// a reaction from the app.
     private let rotationThreshold = 0.0174133  // 1 degree
     
-    /** Rotation around the 'x' axis */
+    /// Rotation around the 'x' axis.
     private var pitch = 0.0 {
         didSet(oldPitch) {
             if pitch > oldPitch, pitch - oldPitch >= rotationThreshold {
@@ -44,13 +47,16 @@ class PlayerViewModel {
         }
     }
     
-    /** Rotation around the 'z' axis */
-    private var yaw = 0.0 {  // rotation around the 'z' axis
-        didSet {
-            
+    /// Rotation around the 'z' axis.
+    private var yaw = 0.0 {
+        didSet(oldYaw) {
+            if yaw > oldYaw, yaw - oldYaw >= rotationThreshold {
+                moveBackward()
+            } else if yaw < oldYaw, oldYaw - yaw >= rotationThreshold {
+                moveForward()
+            }
         }
     }
-    
     
     // MARK: - Methods
     init(url: URL) {
@@ -91,6 +97,22 @@ class PlayerViewModel {
     
     private func decreaseVolume() {
         volume -= 0.1
+    }
+    
+    /// Seek forward by 5 seconds
+    private func moveForward() {
+        let currentTime = player.currentTime()
+        let fiveSeconds = CMTime(seconds: 5, preferredTimescale: currentTime.timescale)
+        let newTime = currentTime + fiveSeconds
+        player.seek(to: newTime)
+    }
+    
+    /// Seek backward by 5 seconds
+    private func moveBackward() {
+        let currentTime = player.currentTime()
+        let fiveSeconds = CMTime(seconds: 5, preferredTimescale: currentTime.timescale)
+        let newTime = currentTime - fiveSeconds
+        player.seek(to: newTime)
     }
     
     // MARK: Motion Detection
