@@ -10,7 +10,7 @@ import SwiftUI
 
 struct VideoPlayerView: View {
     
-    var model: PlayerViewModel = {
+    @State private var model: PlayerViewModel = {
         let videoURL = URL(string: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4")!
         return PlayerViewModel(url: videoURL)
     }()
@@ -18,7 +18,10 @@ struct VideoPlayerView: View {
     var body: some View {
         VStack {
             VideoPlayer(player: model.player)
-                .onAppear { model.play() }
+                .onAppear {
+                    model.play()
+                    model.startDeviceMotionMonitoring()
+                }
                 .onShake { model.togglePlayback() }
         }
         .ignoresSafeArea()
