@@ -10,7 +10,7 @@ import SwiftUI
 
 struct VideoPlayerView: View {
     
-    @State private var model: PlayerViewModel = {
+    private let model: PlayerViewModel = {
         let videoURL = URL(string: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4")!
         return PlayerViewModel(url: videoURL)
     }()
