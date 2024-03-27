@@ -18,10 +18,8 @@ struct VideoPlayerView: View {
     var body: some View {
         VStack {
             VideoPlayer(player: model.player)
-                .onAppear {
-                    model.play()
-                    model.startDeviceMotionMonitoring()
-                }
+                .onAppear { model.play() }
+                .onDisappear { model.pause() }
                 .onShake { model.togglePlayback() }
         }
         .ignoresSafeArea()

@@ -8,8 +8,9 @@
 import AVKit
 import Combine
 import CoreMotion
+import CoreLocation
 
-class PlayerViewModel {
+class PlayerViewModel: NSObject {
     // MARK: - Properties
     private var subscriptions: Set<AnyCancellable> = []
     
@@ -58,9 +59,20 @@ class PlayerViewModel {
         }
     }
     
+    // MARK: Location Detection
+    private var locationManager: CLLocationManager!
+    private var lastKnownLocation: CLLocation?
+    private var isFirstLocationUpdate = true
+    
+    /// The minimum distance the device's location has to change before
+    /// video playback is restarted.
+    private let distanceThreshold = 10.0
+    
     // MARK: - Methods
     init(url: URL) {
         player = AVPlayer(url: url)
+        
+        super.init()
         
         player.publisher(for: \.timeControlStatus)
             .sink { [weak self] status in
@@ -80,15 +92,28 @@ class PlayerViewModel {
     
     deinit {
         motionManager.stopDeviceMotionUpdates()
+        locationManager.stopUpdatingLocation()
     }
     
     // MARK: Playback
     func play() {
         player.play()
+        startDeviceMotionMonitoring()
+        startDeviceLocationMonitoring()
+    }
+    
+    func pause() {
+        player.pause()
     }
     
     func togglePlayback() {
         isPlaying ? player.pause() : player.play()
+    }
+    
+    func restart() {
+        player.pause()
+        player.seek(to: .zero)
+        player.play()
     }
     
     private func increaseVolume() {
@@ -116,7 +141,7 @@ class PlayerViewModel {
     }
     
     // MARK: Motion Detection
-    func startDeviceMotionMonitoring() {
+    private func startDeviceMotionMonitoring() {
         if motionManager.isDeviceMotionAvailable {
             motionManager.deviceMotionUpdateInterval = motionUpdateInterval
             motionManager.startDeviceMotionUpdates(
@@ -130,5 +155,51 @@ class PlayerViewModel {
                 self.yaw = validData.attitude.yaw
             }
         }
+    }
+    
+    // MARK: Location Detection
+    private func startDeviceLocationMonitoring() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        // Receive location updates every 10 meters of movement.
+        // It's a useful parameter, yet not 100% reliable, which is why we
+        // manually check the distance every time we receive a new location.
+        locationManager.distanceFilter = distanceThreshold
+        
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+}
+
+// MARK: - CLLocationManagerDelegate
+extension PlayerViewModel: CLLocationManagerDelegate {
+    
+    func locationManager(_ _: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if isFirstLocationUpdate {
+            guard let firstLocation = locations.last else { return }
+            lastKnownLocation = firstLocation
+            isFirstLocationUpdate = false
+            return
+        }
+        
+        guard let newLocation = locations.last, let lastLocation = self.lastKnownLocation else {
+            return
+        }
+        
+        if newLocation.distance(from: lastLocation) >= distanceThreshold {
+            restart()
+        }
+        
+        self.lastKnownLocation = newLocation
+    }
+    
+    func locationManager(_ _: CLLocationManager, didFailWithError error: Error) {
+        // In a real-world app, we should gracefully handle the error.
+        // For now, just print a message to the console.
+        print("***ERROR***: Unable to retrieve a location value")
+        print(error.localizedDescription)
     }
 }
